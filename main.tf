@@ -1,9 +1,4 @@
 
-data "archive_file" "DataSource" {
-    type = "zip"
-    source_dir  = "scripts"
-    output_path = "outputs/index.js"
-  }
 
 
 
