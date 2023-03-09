@@ -26,7 +26,15 @@ variable "runtime" {
   type = string
   default = ""
 }
+variable "source_code_hash" {
+  type = string
+  default = ""
+}
 
+variable "filename" {
+  type = string
+  default = ""
+}
 variable "tags" {
   type = map
   default = {}
