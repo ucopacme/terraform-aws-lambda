@@ -10,6 +10,10 @@ resource "aws_lambda_function" "this" {
   description      = var.description
   tags             = var.tags
   publish          = var.publish
+
+  environment {
+    variables = var.environment
+  }
 }
 
 resource "aws_lambda_permission" "allow_events_bridge_to_run_lambda" {
