@@ -16,7 +16,10 @@ variable "role" {
   default = ""
 }
 
-
+variable "environment" {
+  type = map
+  default = {}
+}
 variable "function_name" {
   default = ""
 }
