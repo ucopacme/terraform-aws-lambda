@@ -14,6 +14,15 @@ resource "aws_lambda_function" "this" {
   environment {
     variables = var.environment
   }
+
+  # Optional VPC config
+  dynamic "vpc_config" {
+    for_each = length(var.subnet_ids) > 0 && length(var.security_group_ids) > 0 ? [1] : []
+    content {
+      subnet_ids         = var.subnet_ids
+      security_group_ids = var.security_group_ids
+    }
+  }
 }
 
 resource "aws_lambda_permission" "allow_events_bridge_to_run_lambda" {
