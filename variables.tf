@@ -51,9 +51,21 @@ variable "tags" {
 
 }
 
-
 variable "timeout" {
   type = string
   description = "(optional) describe your variable"
   default = "420"
+}
+# --- New VPC-related variables ---
+
+variable "subnet_ids" {
+  type        = list(string)
+  default     = []
+  description = "List of subnet IDs for the Lambda function VPC config (leave empty for no VPC)"
+}
+
+variable "security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = "List of security group IDs for the Lambda function VPC config (leave empty for no VPC)"
 }
