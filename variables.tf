@@ -69,3 +69,9 @@ variable "security_group_ids" {
   default     = []
   description = "List of security group IDs for the Lambda function VPC config (leave empty for no VPC)"
 }
+
+variable "memory_size" {
+  description = "Amount of memory in MB for the Lambda function"
+  type        = number
+  default     = 128  # change this to whatever RAM you want, e.g., 512, 1024
+}
