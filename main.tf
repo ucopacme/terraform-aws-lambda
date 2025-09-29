@@ -1,3 +1,4 @@
+
 resource "aws_lambda_function" "this" {
   count            = var.enabled ? 1 : 0
   filename         = var.filename
@@ -10,6 +11,8 @@ resource "aws_lambda_function" "this" {
   description      = var.description
   tags             = var.tags
   publish          = var.publish
+
+  memory_size      = var.memory_size  # <-- Added RAM configuration
 
   environment {
     variables = var.environment
@@ -32,3 +35,4 @@ resource "aws_lambda_permission" "allow_events_bridge_to_run_lambda" {
   function_name = aws_lambda_function.this[0].function_name
   principal     = "events.amazonaws.com"
 }
+
